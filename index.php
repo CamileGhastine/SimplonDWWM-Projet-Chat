@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css">
+<?php require 'view/header.php' ?>
 
 
-    <title>Simplon Chat</title>
-</head>
-<body>
+<?php 
+    var_dump($_POST);
+    if ($_POST === []) { 
+        require 'view/chat.php';
+    } 
     
-</body>
-</html>
+?>
+
+<?php require 'view/footer.php' ?>
