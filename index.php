@@ -6,5 +6,6 @@ require 'view/default.php';
 
 // un nouveau commentaire sur newBranch
 // un nouveau commentaire sur branch2
+// un deuxieme nouveau commentaire sur branch2
 
 
