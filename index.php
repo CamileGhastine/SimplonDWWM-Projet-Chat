@@ -6,6 +6,7 @@
     var_dump($_POST);
     if ($_POST === []) { 
         require 'view/chat.php';
+        require 'view/form.php';
     } 
     
 ?>
