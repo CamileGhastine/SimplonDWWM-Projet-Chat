@@ -1,3 +1,3 @@
 # SimplonDWWM-Projet-Chat
+Réaliser un chat sans identifcation dans le cadre de ma formation DWM
 
-Réalisation d'un chat en php dans le cadre de ma formation DWWM
