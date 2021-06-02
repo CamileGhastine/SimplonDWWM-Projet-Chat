@@ -1,2 +1,2 @@
 # SimplonDWWM-Projet-Chat
-Réaliser un chat sans identifcation
+Make a chat in PHP for my developer back-end training
