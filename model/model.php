@@ -4,7 +4,7 @@ function findAll(): array
 {
     $db = getDBConnection();
 
-    $request = $db->query('SELECT * FROM message');
+    $request = $db->query('SELECT * FROM message ORDER BY date DESC limit 10');
     $request->setFetchMode(PDO::FETCH_ASSOC);
 
     $messages = $request->fetchAll();
