@@ -1,18 +1,8 @@
 <?php
 
-function findAll()
+function findAll(): array
 {
-    try {
-        $option = [
-            PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-        ];
-
-        $db = new PDO('mysql:host=localhost;dbname=chat', 'root', '', $option);
-    } catch (PDOException $e) {
-        print "Erreur !: " . $e->getMessage() . "<br/>";
-        die();
-    }
+    $db = getDBConnection();
 
     $request = $db->query('SELECT * FROM message');
     $request->setFetchMode(PDO::FETCH_ASSOC);
@@ -22,4 +12,30 @@ function findAll()
     $request->closeCursor();
 
     return $messages;
+}
+
+function create(array $post): void
+{
+    $db = getDBConnection();
+
+    $request = $db->prepare('INSERT INTO message(pseudo, content) VALUES (:pseudo, :content)');
+    $request->execute([
+        'pseudo' => $post['pseudo'],
+        'content' => $post['content']
+    ]);
+}
+
+function getDBConnection()
+{
+    try {
+        $option = [
+            PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        ];
+
+        return new PDO('mysql:host=localhost;dbname=chat', 'root', '', $option);
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage() . "<br/>";
+        die();
+    }
 }
