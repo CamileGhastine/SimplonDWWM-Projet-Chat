@@ -25,6 +25,14 @@ function create(array $post): void
     ]);
 }
 
+function delete(int $id): void
+{
+    $db = getDBConnection();
+
+    $request = $db->prepare('DELETE FROM message WHERE id = ?');
+    $request->execute([$id]);
+}
+
 function getDBConnection()
 {
     try {

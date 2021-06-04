@@ -9,6 +9,11 @@ if ($_POST) {
     }
 }
 
+if(isset($_GET['delete'])) {
+    delete($_GET['delete']);
+    $_POST['pseudo'] = $_GET['pseudo'];
+}
+
 $messages = array_reverse(findAll());
 
 require 'view/default.php';
