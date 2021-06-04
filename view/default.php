@@ -11,7 +11,7 @@
 
 <body>
     <div class="container">
-        <h1>Live Chat Amazin !</h1>
+        <h1>Live Chat Amazin</h1>
         <?php
         require 'chat.php';
         require 'form.php';
