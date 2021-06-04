@@ -4,7 +4,7 @@ function findAll(): array
 {
     $db = getDBConnection();
 
-    $request = $db->query('SELECT * FROM message');
+    $request = $db->query('SELECT * FROM message ORDER BY date DESC limit 10');
     $request->setFetchMode(PDO::FETCH_ASSOC);
 
     $messages = $request->fetchAll();
@@ -23,6 +23,14 @@ function create(array $post): void
         'pseudo' => $post['pseudo'],
         'content' => $post['content']
     ]);
+}
+
+function delete(int $id): void
+{
+    $db = getDBConnection();
+
+    $request = $db->prepare('DELETE FROM message WHERE id = ?');
+    $request->execute([$id]);
 }
 
 function getDBConnection()
