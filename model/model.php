@@ -9,7 +9,6 @@ function findAll()
         ];
 
         $db = new PDO('mysql:host=localhost;dbname=chat', 'root', '', $option);
-
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage() . "<br/>";
         die();
@@ -17,6 +16,10 @@ function findAll()
 
     $request = $db->query('SELECT * FROM message');
     $request->setFetchMode(PDO::FETCH_ASSOC);
-    return $request->fetchAll();
-}
 
+    $messages = $request->fetchAll();
+
+    $request->closeCursor();
+
+    return $messages;
+}
