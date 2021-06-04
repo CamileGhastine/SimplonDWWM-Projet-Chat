@@ -9,6 +9,7 @@ if ($_POST) {
     }
 }
 
+// Attention ici il manque d'autres critères de validation car tout le monde pourrait supprimer n'importe quel message en modifiant le paramètre delete dans l'url.
 if(isset($_GET['delete'])) {
     delete($_GET['delete']);
     $_POST['pseudo'] = $_GET['pseudo'];
